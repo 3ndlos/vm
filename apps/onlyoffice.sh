@@ -37,6 +37,8 @@ apt update -q4 & spinner_loading
 print_text_in_color "$ICyan" "Checking if Nextcloud is installed..."
 if ! curl -s https://"${NCDOMAIN//\\/}"/status.php | grep -q 'installed":true'
 then
+print_text_in_color "$IGreen" "Nextcloud is already installed."
+else 
 msg_box "It seems like Nextcloud is not installed or that you don't use https on:
 ${NCDOMAIN//\\/}.
 Please install Nextcloud and make sure your domain is reachable, or activate SSL
